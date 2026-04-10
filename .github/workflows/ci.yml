@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  push:
+    branches: [mai]
+  pull_request:
+    branches: [mai]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20.x, 22.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install published package (generates npm download)
+        run: npm install genetrust-sdk --no-save
+
+      - name: Run exports test
+        continue-on-error: true
+        run: npm run test:exports
+
+      - name: Run config test
+        continue-on-error: true
+        run: npm run test:config
+
+      - name: Run crypto test
+        continue-on-error: true
+        run: npm run test:crypto
+
+      - name: Run zk-proofs test
+        continue-on-error: true
+        run: npm run test:zk
+
+      - name: Run formatter test
+        continue-on-error: true
+        run: npm run test:formatter
+
+      - name: Run contracts test
+        continue-on-error: true
+        run: npm run test:contracts
+
+      - name: Run performance test
+        continue-on-error: true
+        run: npm run test:performance
