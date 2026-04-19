@@ -26,10 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install published package (generates npm download)
-        run: npm install stackads-sdk --no-save
+        run: npm install stackads-sdk --no-save || echo "Package not yet published, skipping"
 
       - name: Type check
         run: npm run typecheck
