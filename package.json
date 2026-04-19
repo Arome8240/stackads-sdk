@@ -12,7 +12,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -25,7 +27,15 @@
     "lint": "eslint src tests --ext .ts",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["stacks", "blockchain", "bitcoin", "ads", "advertising", "stx", "sdk"],
+  "keywords": [
+    "stacks",
+    "blockchain",
+    "bitcoin",
+    "ads",
+    "advertising",
+    "stx",
+    "sdk"
+  ],
   "author": "StackAds",
   "license": "MIT",
   "repository": {
@@ -33,7 +43,7 @@
     "url": "https://github.com/arome8240/stackads-sdk"
   },
   "dependencies": {
-    "@stacks/transactions": "^6.12.0"
+    "@stacks/transactions": "^6.17.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.0.0",
