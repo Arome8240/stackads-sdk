@@ -1,6 +1,6 @@
 {
   "name": "stackads-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript SDK for interacting with StackAds contracts on the Stacks blockchain",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -36,12 +36,22 @@
     "stx",
     "sdk"
   ],
-  "author": "StackAds",
+  "author": "Dev Arome",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arome8240/stackads-sdk"
+    "url": "https://github.com/Arome8240/stackads-sdk"
   },
+   "bugs": {
+    "url": "https://github.com/Arome8240/stackads-sdk/issues"
+  },
+  "homepage": "https://github.com/Arome8240/stackads-sdk#readme",
   "dependencies": {
     "@stacks/transactions": "^6.17.0"
   },
